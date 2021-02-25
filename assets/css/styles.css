@@ -1,0 +1,45 @@
+* {
+    border: 1px dashed red;
+}
+
+body {
+    font-size: 12pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(61, 2, 95);
+}
+.header {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+.scoreboard {
+    float: left;
+}
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+.countdown {
+    float: right;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    color: white;
+    font-size: 1.7em;
+    margin-bottom: 10px;
+}
+.answerBtn {
+    padding: 1em;
+    margin: 1em;
+    width: 90%;
+    font-weight: bold;
+}
