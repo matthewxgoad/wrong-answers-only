@@ -10,6 +10,6 @@ This project asks the user five random questions about Javascript. Wrong answers
 
 ## Credits
 
-This project is coded by Matthew Goad with help from insttructors and tutors from the Washington University / Trilogy Education Coding Boot Camp program. 
+This project is coded by Matthew Goad with help from instructors and tutors from the Washington University / Trilogy Education Coding Boot Camp program. 
 
-I also used [this site](https://www.sitepoint.com/simple-javascript-quiz/) to help understand coding a Javascript quiz. 
+I also used [this site](https://www.sitepoint.com/simple-javascript-quiz/) and [this video](https://www.youtube.com/watch?v=riDzcEQbX6k) to help understand coding a Javascript quiz. 

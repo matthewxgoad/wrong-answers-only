@@ -17,17 +17,19 @@ the quiz and their score is added to a scoreboard.
 // pulls question from array
 
 /* GLOBAL VARIABLES */
+var startBtn = $('.startBtn')
 var answerBtn = $('.answerBtn');
 var title = $('#title');
 var answers = $('.answers');
 var currentQuestionIndex = 0;
 
 
+
 // questions:
-var questions = [
+const questions = [
     {
         title: "What is the best kind of pie?",
-        choices: ["peach", "strawberry rhubarb", "cake"],
+        choices: ["javascript", "strawberry rhubarb", "cake"],
         solution: "strawberry rhubarb" 
     },
     {
@@ -36,19 +38,19 @@ var questions = [
         solution: "Wayne Knight" 
     },
     {
-        title: "The perfect weather for coding Javascript is:",
+        title: "The perfect weather for coding Javascript is",
         choices: ["cool and dry", "sunny and warm", "stormy and breezy"],
         solution: "sunny and warm" 
     },
     {
-        title: "What is the best kind of pie?",
-        choices: ["peach", "strawberry rhubarb", "cake"],
-        solution: "strawberry rhubarb" 
+        title: "console.log is ",
+        choices: ["a function that writes a message to log", "a confectionery treat", "a computer building material"],
+        solution: "a function that writes a message to log" 
     },
     {
-        title: "What is the best kind of pie?",
-        choices: ["peach", "strawberry rhubarb", "cake"],
-        solution: "strawberry rhubarb" 
+        title: "JSON is an acronym that stands for",
+        choices: ["Judiciary Sanctioned Ordered Nuptials", "JavaScript Object Notation", "JavaScript, Obviously, Nerd"],
+        solution: "JavaScript Object Notation" 
     },
 ];
 
@@ -56,22 +58,30 @@ var questions = [
 // check is answer is correct
 // if yes, increase score
 // if no, decrease time
-
+function startGame() {
+    console.log("Started!");
+    startBtn.hide();
+    title.show();
+    answerBtn.show();
+    showQuestion();
+}
 function showQuestion() {
     title.text(questions[currentQuestionIndex].title)
     answerBtn.each(function(index, answer){
         answer.textContent = questions[currentQuestionIndex].choices[index]
     })
 }
-
 function nextQuestion() {
     currentQuestionIndex++;
     showQuestion();
 }
+function showHighScores() {
 
+}
 
 /* EVENTS */
-answers.click(nextQuestion);
+// answers.click(nextQuestion);
+startBtn.click(startGame);
+answerBtn.click(nextQuestion)
 
 /* ENTRY POINT */
-showQuestion();
