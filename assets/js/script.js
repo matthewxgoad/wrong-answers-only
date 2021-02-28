@@ -72,6 +72,7 @@ function startGame() {
     answerBtn.show();
     showQuestion();
     currentTime = 80;
+    timerCountdown();
     timerIntervalId = setInterval( timerCountdown , 1000);
     
 }
@@ -85,19 +86,22 @@ function showQuestion() {
 
 function checkAnswer(event) {
     // check the answer using the event.target dataset ( index)
-    if( event.target.data.index === questions[currentQuestionIndex].solution){
+    if( event.target.text != questions[currentQuestionIndex].solution){
+        currentTime = currentTime - 10;
         // if(more questions are available) increment the current question index
         // refresh the question section
-        // 
     }
-}
-
-function nextQuestion() {
     currentQuestionIndex++;
-    showQuestion();
+    if( currentQuestionIndex < 5 ) {
+        showQuestion();
+    }else{
+        endGame();
+    }    
 }
 
 function endGame() {
+    var userInitials = prompt("Enter initials:");
+    localStorage.setItem(["userInitials", userInitials], ["finalScore", currentTime]);
 
 }
 
@@ -109,8 +113,7 @@ function showHighScores() {
 //clearn localStorage
 
 /* EVENTS */
-// answers.click(nextQuestion);
 startBtn.click(startGame);
-answerBtn.click(nextQuestion)
+answerBtn.click(checkAnswer)
 
 /* ENTRY POINT */
