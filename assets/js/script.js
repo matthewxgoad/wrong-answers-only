@@ -22,7 +22,10 @@ var answerBtn = $('.answerBtn');
 var title = $('#title');
 var answers = $('.answers');
 var currentQuestionIndex = 0;
-
+var shuffledQuestions = "";
+var timerIntervalId;
+var currentTime = 0;
+var timeRemaining = $('.upperRight');
 
 
 // questions:
@@ -58,26 +61,52 @@ const questions = [
 // check is answer is correct
 // if yes, increase score
 // if no, decrease time
+
+function timerCountdown() {
+    timeRemaining.text(currentTime-- + ' seconds');
+}
+
 function startGame() {
-    console.log("Started!");
     startBtn.hide();
     title.show();
     answerBtn.show();
     showQuestion();
+    currentTime = 80;
+    timerIntervalId = setInterval( timerCountdown , 1000);
+    
 }
+
 function showQuestion() {
     title.text(questions[currentQuestionIndex].title)
     answerBtn.each(function(index, answer){
         answer.textContent = questions[currentQuestionIndex].choices[index]
     })
 }
+
+function checkAnswer(event) {
+    // check the answer using the event.target dataset ( index)
+    if( event.target.data.index === questions[currentQuestionIndex].solution){
+        // if(more questions are available) increment the current question index
+        // refresh the question section
+        // 
+    }
+}
+
 function nextQuestion() {
     currentQuestionIndex++;
     showQuestion();
 }
+
+function endGame() {
+
+}
+
 function showHighScores() {
 
 }
+// create function to get high scores from local storage
+// function => add scorres to local storage
+//clearn localStorage
 
 /* EVENTS */
 // answers.click(nextQuestion);

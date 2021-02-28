@@ -8,14 +8,14 @@ body {
     font-weight: bold;
     padding: 10px;
 }
-.upperleft {
+.upperLeft {
     float: left;
 }
 a {
     text-decoration: inherit;
     color: inherit;
 }
-.upperright {
+.upperRight {
     float: right;
 }
 .main {
