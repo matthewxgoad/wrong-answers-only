@@ -58,9 +58,6 @@ const questions = [
 ];
 
 /* FUNCTIONS */
-// check is answer is correct
-// if yes, increase score
-// if no, decrease time
 
 function timerCountdown() {
     timeRemaining.text(currentTime-- + ' seconds');
@@ -85,11 +82,8 @@ function showQuestion() {
 }
 
 function checkAnswer(event) {
-    // check the answer using the event.target dataset ( index)
-    if( event.target.text != questions[currentQuestionIndex].solution){
+    if(event.target.textContent.localeCompare(questions[currentQuestionIndex].solution) != 0 ){
         currentTime = currentTime - 10;
-        // if(more questions are available) increment the current question index
-        // refresh the question section
     }
     currentQuestionIndex++;
     if( currentQuestionIndex < 5 ) {
@@ -100,8 +94,10 @@ function checkAnswer(event) {
 }
 
 function endGame() {
+    clearInterval(timerIntervalId);
     var userInitials = prompt("Enter initials:");
-    localStorage.setItem(["userInitials", userInitials], ["finalScore", currentTime]);
+    localStorage.setItem(currentTime, userInitials);
+    location.href = "scoreboard.html";
 
 }
 
