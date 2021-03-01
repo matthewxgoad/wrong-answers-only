@@ -28,6 +28,7 @@ var currentTime = 0;
 var timeRemaining = $('.upperRight');
 
 
+
 // questions:
 const questions = [
     {
@@ -105,14 +106,20 @@ function endGame() {
 }
 
 function showHighScores() {
-
+    for( var i = 0; i < localStorage.length; i++) {
+        const localData = localStorage.getItem(i.toString());
+        const output = JSON.parse(localData);
+        var highScoreEntry = (output.userName  + "    " + output.userScore );
+        const newDiv = document.createElement("div");
+        const newContent = document.createTextNode(highScoreEntry);
+        newDiv.appendChild(newContent);
+        const currentDiv = document.getElementById("highscoresList");
+        currentDiv.appendChild(newDiv);
+    }
 }
-// create function to get high scores from local storage
-// function => add scorres to local storage
 //clearn localStorage
 
 /* EVENTS */
 startBtn.click(startGame);
-answerBtn.click(checkAnswer)
-
-/* ENTRY POINT */
+answerBtn.click(checkAnswer);
+document.body.onload = showHighScores();
