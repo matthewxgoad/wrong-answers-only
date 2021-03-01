@@ -26,6 +26,7 @@ var shuffledQuestions = "";
 var timerIntervalId;
 var currentTime = 0;
 var timeRemaining = $('.upperRight');
+var clearHighScores = $('.highScoreBtn');
 
 
 
@@ -111,6 +112,7 @@ function showHighScores() {
         const output = JSON.parse(localData);
         var highScoreEntry = (output.userName  + "    " + output.userScore );
         const newDiv = document.createElement("div");
+        newDiv.className = 'highScoreStyle';
         const newContent = document.createTextNode(highScoreEntry);
         newDiv.appendChild(newContent);
         const currentDiv = document.getElementById("highscoresList");
@@ -118,8 +120,14 @@ function showHighScores() {
     }
 }
 //clearn localStorage
+function clearLocalStorage() {
+    localStorage.clear();
+    location.reload();
+}
+
 
 /* EVENTS */
 startBtn.click(startGame);
 answerBtn.click(checkAnswer);
 document.body.onload = showHighScores();
+clearHighScores.click(clearLocalStorage);
