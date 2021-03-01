@@ -1,8 +1,8 @@
 # A Javascript Quiz
 
-![animated gif of working quiz]()
+![animated gif of working quiz](assets/images/js-quiz-demo.gif)
 
-[link to deployed quiz]()
+[link to deployed quiz](http://matthewxgoad.github.io/wrong-answers-only)
 
 ## Description
 
