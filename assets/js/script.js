@@ -96,9 +96,12 @@ function checkAnswer(event) {
 function endGame() {
     clearInterval(timerIntervalId);
     var userInitials = prompt("Enter initials:");
-    localStorage.setItem(currentTime, userInitials);
+    let highScoreData = {
+        userName: userInitials,
+        userScore: currentTime
+    }
+    localStorage.setItem(localStorage.length.toString(), JSON.stringify(highScoreData));
     location.href = "scoreboard.html";
-
 }
 
 function showHighScores() {
