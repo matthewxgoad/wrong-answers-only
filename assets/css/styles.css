@@ -19,6 +19,7 @@ a {
     text-decoration: inherit;
     color: inherit;
 }
+/* The Main part of the page is a centered column */
 .main {
     display: flex;
     flex-direction: column;
